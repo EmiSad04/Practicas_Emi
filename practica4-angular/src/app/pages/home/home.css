@@ -1,0 +1,13 @@
+.contenedor {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* separación entre imágenes */
+}
+
+.img-grande {
+  width: 350px;
+}
+
+.img-pequena {
+  width: 120px;
+}
