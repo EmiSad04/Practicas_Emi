@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { contacto } from './contacto/contacto';
+import { ContactoComponent } from './contacto/contacto';
 
 export const routes: Routes = [
-  { path: '', component: contacto }
+  { path: '', component: ContactoComponent }
 ];
