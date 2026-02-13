@@ -4,6 +4,7 @@
   <form #formContacto="ngForm"
         (ngSubmit)="procesarFormulario(formContacto)">
 
+    <!-- ================= NOMBRE ================= -->
     <div class="mb-3">
       <label class="form-label">Nombre</label>
       <input
@@ -20,7 +21,7 @@
         (input)="soloLetras($event)">
     </div>
 
-    <!-- Mensajes de error -->
+    <!-- Mensajes de error Nombre -->
     <div *ngIf="nombreCtrl.invalid && nombreCtrl.touched" class="text-danger">
       <small *ngIf="nombreCtrl.errors?.['required']">
         El nombre es obligatorio
@@ -38,6 +39,7 @@
       El nombre solo debe contener letras.
     </div>
 
+    <!-- ================= CORREO ================= -->
     <div class="mb-3">
       <label class="form-label">Correo</label>
       <input
@@ -46,16 +48,32 @@
         name="correo"
         ngModel
         required
-        email>
+        email
+        maxlength="50"
+        #correoCtrl="ngModel">
+    </div>
+
+    <!-- Mensajes de error Correo -->
+    <div *ngIf="correoCtrl.invalid && correoCtrl.touched" class="text-danger">
+      <small *ngIf="correoCtrl.errors?.['required']">
+        El correo es obligatorio
+      </small>
+      <small *ngIf="correoCtrl.errors?.['email']">
+        El correo no tiene un formato válido
+      </small>
+      <small *ngIf="correoCtrl.errors?.['maxlength']">
+        El correo no debe exceder 50 caracteres
+      </small>
     </div>
 
     <button class="btn btn-primary" type="submit">
       Enviar
     </button>
+
   </form>
 </div>
 
-<!-- Modal Bootstrap -->
+<!-- ================= MODAL ================= -->
 <div class="modal fade" id="modalResultado" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
