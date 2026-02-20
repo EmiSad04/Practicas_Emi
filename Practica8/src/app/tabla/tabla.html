@@ -16,7 +16,7 @@
          <td>{{ evento.lugar }}</td>
         <td>
           <span *ngIf="evento.precio > 0">
-            ${{ evento.precio }}
+            {{ evento.precio }}
           </span>
           <span *ngIf="evento.precio == 0">
             Gratis
