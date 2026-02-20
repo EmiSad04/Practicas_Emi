@@ -3,11 +3,11 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": false
+    "analytics": "4bd5afdb-6ccf-458d-8884-35725f8fe663"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "Practica8": {
+    "practica-9": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,12 +25,18 @@
                 "input": "public"
               }
             ],
-           "styles": [
-               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-               "src/styles.css"
-                  ],
-             "scripts": [
-               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -60,10 +66,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Practica8:build:production"
+              "buildTarget": "practica-9:build:production"
             },
             "development": {
-              "buildTarget": "Practica8:build:development"
+              "buildTarget": "practica-9:build:development"
             }
           },
           "defaultConfiguration": "development"

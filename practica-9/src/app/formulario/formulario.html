@@ -1,0 +1,58 @@
+<form #miFormulario="ngForm" (ngSubmit)="guardarAlumno(miFormulario)" novalidate>
+  
+  <div class="mb-3">
+    <label>Nombre:</label>
+    <input 
+      type="text" 
+      name="nombre" 
+      ngModel 
+      #nombre="ngModel"
+      required 
+      minlength="3"
+      class="form-control"
+      [class.is-invalid]="nombre.invalid && nombre.touched">
+    
+    <div *ngIf="nombre.invalid && nombre.touched" class="text-danger">
+      <small *ngIf="nombre.errors?.['required']">El nombre es obligatorio.</small>
+      <small *ngIf="nombre.errors?.['minlength']">Mínimo 3 caracteres.</small>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label>Edad:</label>
+    <input 
+      type="number" 
+      name="edad" 
+      ngModel 
+      #edad="ngModel"
+      required 
+      min="18" 
+      max="99"
+      class="form-control"
+      [class.is-invalid]="edad.invalid && edad.touched">
+    
+    <div *ngIf="edad.invalid && edad.touched" class="text-danger">
+      <small *ngIf="edad.errors?.['required']">La edad es requerida.</small>
+      <small *ngIf="edad.errors?.['min']">Debes ser mayor de 18 años.</small>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label>Carrera:</label>
+    <select 
+      name="Carrera" 
+      ngModel 
+      #carrera="ngModel" 
+      required 
+      class="form-select"
+      [class.is-invalid]="carrera.invalid && carrera.touched">
+      <option value="">Seleccione una carrera</option>
+      <option value="Ingeniería">Ingeniería</option>
+      <option value="Licenciatura">Licenciatura</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="miFormulario.invalid" class="btn btn-primary">
+    Guardar Alumno
+  </button>
+</form>
