@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "flask_practica_7": {
+    "Practica8": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "flask_practica_7:build:production"
+              "buildTarget": "Practica8:build:production"
             },
             "development": {
-              "buildTarget": "flask_practica_7:build:development"
+              "buildTarget": "Practica8:build:development"
             }
           },
           "defaultConfiguration": "development"
