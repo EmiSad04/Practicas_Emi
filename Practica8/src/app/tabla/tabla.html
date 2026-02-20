@@ -10,12 +10,10 @@
       </tr>
     </thead>
     <tbody>
-
-      <tr *ngFor="let evento of eventosLista">
+      <tr *ngFor="let evento of listaEventos">
         <td>{{ evento.titulo }}</td>
         <td>{{ evento.fecha }}</td>
-        <td>{{ evento.lugar }}</td>
-        <td>{{ evento.categoria }}</td>
+         <td>{{ evento.lugar }}</td>
         <td>
           <span *ngIf="evento.precio > 0">
             ${{ evento.precio }}

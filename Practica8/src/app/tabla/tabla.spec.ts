@@ -1,24 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-tabla',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './tabla.html',
-  styleUrl: './tabla.css'
-})
-export class Tabla implements OnInit {
+import { Tabla } from './tabla';
 
-  listaEventos: any[] = [];
+describe('Tabla', () => {
+  let component: Tabla;
+  let fixture: ComponentFixture<Tabla>;
 
-  constructor(private http: HttpClient) {}
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [Tabla]
+    })
+    .compileComponents();
 
-  ngOnInit() {
-    this.http.get<any[]>('http://127.0.0.1:5000/eventos')
-      .subscribe(data => {
-        this.listaEventos = data;
-      });
-  }
-}
+    fixture = TestBed.createComponent(Tabla);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
