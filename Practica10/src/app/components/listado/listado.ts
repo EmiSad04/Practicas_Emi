@@ -20,15 +20,16 @@ export class Listado implements OnInit {
   }
 
   loadGames() {
-    this.gameService.getGames().subscribe({
-      next: (data) => {
-        this.games = data;
-      },
-      error: (error) => {
-        console.error("Error al obtener juegos:", error);
-      }
-    });
-  }
+  this.gameService.getGames().subscribe({
+    next: (data) => {
+      console.log("Datos crudos desde el servidor:", data); // Revisa esto en la consola (F12)
+      this.games = data;
+    },
+    error: (error) => {
+      console.error("No se pudo conectar con el backend. ¿Está encendido Flask?", error);
+    }
+  });
+}
 
   deleteGame(id: string) {
     if (confirm("¿Seguro que deseas eliminar este videojuego?")) {
