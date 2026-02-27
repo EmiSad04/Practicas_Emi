@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="row">
+
+    <div class="col-md-4 mb-4" *ngFor="let game of games">
+      <div class="card h-100 shadow">
+
+        <img 
+          [src]="game.imagenUrl"
+          class="card-img-top"
+          alt="Imagen videojuego"
+          style="height: 400px; object-fit: cover;"
+        >
+
+        <div class="card-body">
+          <h5 class="card-title">Nombre: {{ game.nombre }}</h5>
+          <p class="card-text"><strong>Género: {{ game.genero }}</strong></p>
+          <p class="card-text"><strong>Precio: ${{ game.precio }}</strong></p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
