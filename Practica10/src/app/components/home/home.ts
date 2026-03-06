@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../../services/game.service';
 
@@ -13,7 +13,7 @@ export class Home implements OnInit {
 
   games: any[] = [];
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.loadGames();
@@ -24,6 +24,7 @@ export class Home implements OnInit {
       next: (data) => {
         this.games = data;
         console.log("Juegos cargados:", this.games);
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error("Error al obtener juegos:", error);

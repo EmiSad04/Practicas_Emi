@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GameService } from '../../services/game.service';
@@ -19,12 +19,13 @@ export class Formulario {
     imagenUrl: ''
   };
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private cdr: ChangeDetectorRef) {}
 
   onSubmit() {
     this.gameService.createGame(this.game).subscribe({
       next: () => {
         alert("Videojuego agregado correctamente");
+        this.cdr.detectChanges();
         this.game = {
           nombre: '',
           genero: '',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../../services/game.service';
 
@@ -13,7 +13,7 @@ export class Listado implements OnInit {
 
   games: any[] = [];
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.loadGames();
@@ -24,6 +24,7 @@ export class Listado implements OnInit {
     next: (data) => {
       console.log("Datos crudos desde el servidor:", data); // Revisa esto en la consola (F12)
       this.games = data;
+      this.cdr.detectChanges();
     },
     error: (error) => {
       console.error("No se pudo conectar con el backend. ¿Está encendido Flask?", error);
